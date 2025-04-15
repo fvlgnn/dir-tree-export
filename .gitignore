@@ -23,3 +23,15 @@ go.work.sum
 
 # env file
 .env
+venv/
+
+# IDE files
+*.idea
+*.vscode
+*.sublime-*
+
+# Personali
+dir_tree_export_output.txt
+
+# Altri
+.DS_Store
