@@ -59,6 +59,15 @@ func printTree(path string, depth int, output *strings.Builder, root string, pre
 		return nil
 	}
 
+	if depth == 0 {
+		absPath, err := filepath.Abs(path)
+		if err != nil {
+			return err
+		}
+		dirName := filepath.Base(absPath)
+		output.WriteString(dirName + "\n")
+	}
+
 	entries, err := os.ReadDir(path)
 	if err != nil {
 		return err
