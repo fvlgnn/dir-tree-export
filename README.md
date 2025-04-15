@@ -16,7 +16,7 @@ Tool da linea di comando per esportare in un file di testo la struttura ad alber
 
 - `--depth`: profondità di scansione (default _3_)
 - `--show-hidden`: mostra anche i file nascosti (default _false_)
-- `--output`: nome del file di output (default `dir_tree_export_output.txt`)
+- `--output`: nome del file di output (default _dir\_tree\_export\_output.txt_)
 - `--show-size`: mostra la dimensione dei file (default _false_)
 - `--only-dirs`: mostra solo directory (default _false_)
 
