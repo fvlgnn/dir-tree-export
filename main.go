@@ -7,6 +7,8 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/fatih/color"
 )
 
 // variabili globali
@@ -41,17 +43,17 @@ func main() {
 	var output strings.Builder
 	err := printTree(root, 0, &output, root, "", []bool{})
 	if err != nil {
-		fmt.Println("[ERROR]", err)
+		color.Red("[ERROR]", err)
 		os.Exit(1)
 	}
 
 	err = os.WriteFile(*outputFile, []byte(output.String()), 0644)
 	if err != nil {
-		fmt.Println("[ERROR] Impossibile scrivere il file di output:", err)
+		color.Red("[ERROR] Impossibile scrivere il file di output:", err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("✅ Esportazione completata in '%s'\n", *outputFile)
+	color.Green("Esportazione completata in '%s'\n", *outputFile)
 }
 
 func printTree(path string, depth int, output *strings.Builder, root string, prefix string, parentLast []bool) error {
