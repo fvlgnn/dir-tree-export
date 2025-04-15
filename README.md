@@ -38,7 +38,7 @@ go run main.go --only-dirs --depth=4
 # Mostra anche file nascosti specificando un percorso
 go run main.go --show-hidden ~/projects
 
-# Esporta con dimensioni e nome custom file output specificando un percorso
+# Esporta con dimensioni e un nome personalizzato del file di output specificando un determinato percorso
 go run main.go --show-size --output=mytree.txt ../my-folder
 ```
 
@@ -50,6 +50,9 @@ go run main.go --show-size --output=mytree.txt ../my-folder
 
 # Cartella specifica
 .\dir-tree-export.exe C:\Users\foobar\the-folder
+
+# Esporta con dimensioni con un percorso specificato e un nome personalizzato del file di output specificando determinato un percorso
+.\dir-tree-export.exe --show-size --output="C:\Users\gianni\Desktop\foobar.txt" C:\Users\foobar\the-folder
 ```
 
 ### Linux
