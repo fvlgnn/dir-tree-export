@@ -23,7 +23,9 @@ Tool da linea di comando per esportare in un file di testo la struttura ad alber
 
 ## Esempi di utilizzo
 
-```bash
+### Go
+
+```sh
 # Base
 go run main.go
 
@@ -38,4 +40,24 @@ go run main.go --show-hidden ~/projects
 
 # Esporta con dimensioni e nome custom file output specificando un percorso
 go run main.go --show-size --output=mytree.txt ../my-folder
+```
+
+### Windows
+
+```powershell
+# Base
+.\dir-tree-export.exe
+
+# Cartella specifica
+.\dir-tree-export.exe C:\Users\foobar\the-folder
+```
+
+### Linux
+
+```sh
+# Base
+sh ./dir-tree-export
+
+# Cartella specifica
+sh ./dir-tree-export ~/the-folder/subfolder
 ```
