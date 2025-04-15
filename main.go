@@ -53,7 +53,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	color.Green("Esportazione completata in '%s'\n", *outputFile)
+	color.Cyan("[INFO] Esportazione completata in '%s'\n", *outputFile)
 }
 
 func printTree(path string, depth int, output *strings.Builder, root string, prefix string, parentLast []bool) error {
