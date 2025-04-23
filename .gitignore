@@ -1,6 +1,12 @@
 # If you prefer the allow list template instead of the deny list, see community template:
 # https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
-#
+
+# Personali
+dir_tree_export_output.txt
+archivio/
+utils/
+TODO.md
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -29,9 +35,6 @@ venv/
 *.idea
 *.vscode
 *.sublime-*
-
-# Personali
-dir_tree_export_output.txt
 
 # Altri
 .DS_Store
