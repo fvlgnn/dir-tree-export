@@ -34,7 +34,6 @@ var (
 // Funzione principale
 func main() {
 	if len(os.Args) > 1 {
-		// Controlla se "--version" è stato passato
 		if os.Args[1] == "--version" || os.Args[1] == "-v" {
 			color.Cyan("Versione: %s\n", version)
 			os.Exit(0)
