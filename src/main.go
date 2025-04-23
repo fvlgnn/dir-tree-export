@@ -13,6 +13,7 @@ import (
 
 // variabili globali
 var (
+	version     = "0.0.0.dev"
 	maxDepth    = flag.Int("depth", 3, "Profondità massima della scansione")
 	showHidden  = flag.Bool("show-hidden", false, "Mostra anche i file nascosti")
 	outputFile  = flag.String("output", "dir_tree_export_output.txt", "Nome del file di output")
@@ -32,6 +33,14 @@ var (
 
 // Funzione principale
 func main() {
+	if len(os.Args) > 1 {
+		// Controlla se "--version" è stato passato
+		if os.Args[1] == "--version" || os.Args[1] == "-v" {
+			color.Cyan("Versione: %s\n", version)
+			os.Exit(0)
+		}
+	}
+
 	flag.Parse()
 
 	// Percorso da analizzare come argomento (default = ".")
@@ -123,7 +132,10 @@ func printTree(path string, depth int, output *strings.Builder, root string, pre
 		if entry.IsDir() {
 			nextParentLast := append([]bool{}, parentLast...)
 			nextParentLast = append(nextParentLast, isLast)
-			printTree(filepath.Join(path, name), depth+1, output, root, prefix+"    ", nextParentLast)
+			err := printTree(filepath.Join(path, name), depth+1, output, root, prefix+"    ", nextParentLast)
+			if err != nil {
+				return err
+			}
 		}
 	}
 
