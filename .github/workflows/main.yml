@@ -39,23 +39,20 @@ jobs:
         run: |
           cd src/
           mkdir -p dist
-
+      
           EXT=""
           if [ "${{ matrix.goos }}" = "windows" ]; then EXT=".exe"; fi
-
-          # ARM GOARM level (7 = Raspberry Pi 2/3)
-          GOARM_OPT=""
-          if [ "${{ matrix.goarch }}" = "arm" ]; then GOARM_OPT="GOARM=7"; fi
-
+      
           OUTPUT="$ARTIFACT_NAME-${{ github.ref_name }}-${{ matrix.goos }}-${{ matrix.goarch }}"
-          if [ "$GOARM_OPT" != "" ]; then OUTPUT="${OUTPUT}v7"; fi
-
-          echo "Building $OUTPUT$EXT..."
-
-          GOOS=${{ matrix.goos }} \
-          GOARCH=${{ matrix.goarch }} \
-          $GOARM_OPT \
-          go build -o "dist/$OUTPUT$EXT" main.go
+          
+          if [ "${{ matrix.goarch }}" = "arm" ]; then
+            OUTPUT="${OUTPUT}v7"
+            echo "Building $OUTPUT$EXT with GOARM=7..."
+            GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} GOARM=7 go build -o "dist/$OUTPUT$EXT" main.go
+          else
+            echo "Building $OUTPUT$EXT..."
+            GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o "dist/$OUTPUT$EXT" main.go
+          fi
 
       - name: Release
         id: release
