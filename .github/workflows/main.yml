@@ -76,6 +76,7 @@ jobs:
             | Linux          | arm (v7)     | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-armv7`       |
             | Linux          | arm64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-arm64`       |
             | Windows        | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-amd64.exe` |
+            | Windows        | 386          | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-386.exe`   |
             | macOS (Darwin) | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-darwin-amd64`      |
           draft: false
           prerelease: false
