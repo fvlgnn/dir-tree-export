@@ -29,18 +29,19 @@ var (
 		".venv":        true,
 		"__pycache__":  true,
 	}
+	versionFlag      = flag.Bool("version", false, "Stampa la versione ed esce")
+	shortVersionFlag = flag.Bool("v", false, "Alias per --version")
 )
 
 // Funzione principale
 func main() {
-	if len(os.Args) > 1 {
-		if os.Args[1] == "--version" || os.Args[1] == "-v" {
-			color.Cyan("Versione: %s\n", version)
-			os.Exit(0)
-		}
-	}
 
 	flag.Parse()
+
+	if *versionFlag || *shortVersionFlag {
+		color.Cyan("Versione: %s - Sviluppata da @fvlgnn\n", version)
+		os.Exit(0)
+	}
 
 	// Percorso da analizzare come argomento (default = ".")
 	root := "."
