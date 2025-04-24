@@ -12,7 +12,6 @@ jobs:
 
     env:
       ARTIFACT_NAME: "dir_tree_export"
-      DEBUG_MODE: ${{ github.ref_type == 'tag' && 'false' || 'true' }}
 
     strategy:
       matrix:
