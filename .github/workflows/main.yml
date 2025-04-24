@@ -65,7 +65,7 @@ jobs:
           tag_name: ${{ github.ref_name }}
           name: Dir Tree Export ${{ github.ref_name }}
           body: |
-            **Dir Tree Export versione ${{ github.ref_name }}**
+            **Dir Tree Export (versione ${{ github.ref_name }})**
             Scarica la versione di `${{ env.ARTIFACT_NAME }}` per il sistema operativo e l'architettura di destinazione in base alla tabella qui sotto.
             Per Raspberry Pi 2/3, utilizzare l'architettura `linux-armv7`, mentre per Raspberry Pi 4/5 utilizzare `linux-arm64`.
             | Sistema        | Architettura | File generato                                                       |
