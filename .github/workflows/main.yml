@@ -37,6 +37,7 @@ jobs:
 
       - name: Build Go binary
         run: |
+          cd src/
           mkdir -p dist
 
           EXT=""
@@ -79,4 +80,4 @@ jobs:
             | macOS (Darwin) | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-darwin-amd64`      |
           draft: false
           prerelease: false
-          files: dist/*
+          files: src/dist/*
