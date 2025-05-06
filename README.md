@@ -18,23 +18,27 @@
 
 ## 📥 Installazione
 
-1. Scarica l'[ultima versione](https://github.com/fvlgnn/dir-tree-export/releases/latest) dell'eseguibile compatibile con il tuo sistema operativo e architettura, come da esempio riportato nella tabella seguente, oppure visita la sezione [Releases](https://github.com/fvlgnn/dir-tree-export/releases) per scegliere una versione specifica.
+1. Scarica l'[ultima versione](https://github.com/fvlgnn/dir-tree-export/releases/latest) dell'eseguibile compatibile con il tuo sistema operativo e architettura. Utilizza la tabella seguente come riferimento per identificare il nome del file corrispondente, oppure visita la sezione [Releases](https://github.com/fvlgnn/dir-tree-export/releases) per scegliere una versione specifica.
 
-> 💡 **Nota**:
-> 
-> * Per **Raspberry Pi 2/3**, usa `linux-armv7`
-> * Per **Raspberry Pi 4/5**, usa `linux-arm64`
-
-
-| Sistema         | Architettura | Denominazione File                           |
+| Sistema         | Architettura | Denominazione del File                       |
 |-----------------|--------------|----------------------------------------------|
-| Windows         | amd64        | `dir-tree-export-versione-windows-amd64.exe` |
-| Windows         | 386          | `dir-tree-export-versione-windows-386.exe`   |
-| Linux           | amd64        | `dir-tree-export-versione-linux-amd64`       |
-| Linux           | 386          | `dir-tree-export-versione-linux-386`         |
-| Linux (RPi 4/5) | arm64        | `dir-tree-export-versione-linux-arm64`       |
-| Linux (RPi 2/3) | arm (v7)     | `dir-tree-export-versione-linux-armv7`       |
-| macOS (Darwin)  | amd64        | `dir-tree-export-versione-darwin-amd64`      |
+| Windows         | amd64        | `dir-tree-export-<versione>-windows-amd64.exe` |
+| Windows         | 386          | `dir-tree-export-<versione>-windows-386.exe`   |
+| Linux           | amd64        | `dir-tree-export-<versione>-linux-amd64`       |
+| Linux           | 386          | `dir-tree-export-<versione>-linux-386`         |
+| Linux (RPi 4/5) | arm64        | `dir-tree-export-<versione>-linux-arm64`       |
+| Linux (RPi 2/3) | arm (v7)     | `dir-tree-export-<versione>-linux-armv7`       |
+| macOS (Darwin)  | amd64        | `dir-tree-export-<versione>-darwin-amd64`      |
+
+> 💡 **Esempi**:
+>
+> - Su **Windows 64-bit**, scarica il file denominato `dir-tree-export-<versione>-windows-amd64.exe`
+> - Su **Linux 32-bit**, scarica `dir-tree-export-<versione>-linux-386`
+> - Su **macOS 64-bit**, scarica `dir-tree-export-<versione>-darwin-amd64`
+> - Per **Raspberry Pi 4/5**, scarica `dir-tree-export-<versione>-linux-arm64`
+> - Per **Raspberry Pi 2/3**, scarica `dir-tree-export-<versione>-linux-armv7`
+>
+> Dove `<versione>` è di tipo `v1.2.3`.
 
 2. Copia il file scaricato in una directory del **PATH** di sistema:
    
@@ -112,7 +116,7 @@ go run main.go --only-dirs --depth=4
 # Includi anche file e cartelle nascosti partendo da ~/projects
 go run main.go --show-hidden ~/projects
 
-# Esporta con dimensioni dei file e nome personalizzato dell’output
+# Esporta con dimensioni dei file e nome personalizzato dell'output
 go run main.go --show-size --output=mytree.txt ../my-folder
 
 # Esempio completo: tutti gli argomenti combinati
@@ -137,7 +141,7 @@ go run main.go --only-dirs --show-hidden --show-size --depth=0 --output=full_tre
 # Specifica una cartella
 .\dir-tree-export.exe C:\Users\foobar\the-folder
 
-# Esporta con dimensioni dei file e nome personalizzato dell’output
+# Esporta con dimensioni dei file e nome personalizzato dell'output
 .\dir-tree-export.exe --show-size --output="C:\Users\gianni\Desktop\foobar.txt" C:\Users\foobar\the-folder
 
 # Esempio completo: tutti gli argomenti combinati
