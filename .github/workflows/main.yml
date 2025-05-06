@@ -73,17 +73,17 @@ jobs:
           name: dir-tree-export-${{ github.ref_name }}
           body: |
             **Dir Tree Export ${{ github.ref_name }}**
-            Scarica la versione di `${{ env.ARTIFACT_NAME }}` per il sistema operativo e l'architettura di destinazione in base alla tabella qui sotto.
-            > Per Raspberry Pi 2/3, utilizzare l'architettura `linux-armv7`, mentre per Raspberry Pi 4/5 utilizzare `linux-arm64`.
+            Scarica l'eseguibile di `${{ env.ARTIFACT_NAME }}` compatibile con il tuo sistema operativo e architettura dalla tabella seguente o dalla sezione Assets.
             | Sistema        | Architettura | File                                                                |
             |----------------|--------------|---------------------------------------------------------------------|
             | Linux          | amd64        | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-amd64](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-amd64)` |
             | Linux          | 386          | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-386](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-386)` |
-            | Linux          | arm (v7)     | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-armv7](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-armv7)` |
-            | Linux          | arm64        | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-arm64](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-arm64)` |
+            | Linux          | arm (v7) *   | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-armv7](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-armv7)` |
+            | Linux          | arm64 *      | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-arm64](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-arm64)` |
             | Windows        | amd64        | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-amd64.exe](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-amd64.exe)` |
             | Windows        | 386          | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-386.exe](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-386.exe)` |
             | macOS (Darwin) | amd64        | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-darwin-amd64](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-darwin-amd64)` |
+            _* Raspberry Pi 2/3 architettura `linux-armv7` | Raspberry Pi 4/5  architettura `linux-arm64`._
             ---
             📝 **Ultimo commit:** `${{ steps.last_commit.outputs.message }}`
           draft: false
