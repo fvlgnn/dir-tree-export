@@ -53,10 +53,10 @@ jobs:
           if [ "${{ matrix.goarch }}" = "arm" ]; then
             OUTPUT="${OUTPUT}v7"
             echo "Building $OUTPUT$EXT with GOARM=7..."
-            GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} GOARM=7 go build -o "dist/$OUTPUT$EXT" main.go
+            GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} GOARM=7 go build -ldflags="-X 'main.version=${{ github.ref_name }}" -o "dist/$OUTPUT$EXT" main.go
           else
             echo "Building $OUTPUT$EXT..."
-            GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o "dist/$OUTPUT$EXT" main.go
+            GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -ldflags="-X 'main.version=${{ github.ref_name }}" -o "dist/$OUTPUT$EXT" main.go
           fi
 
       - name: Get last commit message
@@ -70,10 +70,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           tag_name: ${{ github.ref_name }}
-          name: dir-tree-export-${{ github.ref_name }}
+          name: ${{ github.ref_name }}
           body: |
             **Dir Tree Export ${{ github.ref_name }}**
-            Scarica dagli Assets l'eseguibile di `${{ env.ARTIFACT_NAME }}` compatibile con il tuo sistema operativo e architettura come suggerito dalla tabella seguente.
+            Scarica dagli Assets l'eseguibile compatibile con il tuo sistema operativo e l'architettura come suggerito dalla tabella seguente.
             | Sistema         | Architettura | Asset                                                               |
             |-----------------|--------------|---------------------------------------------------------------------|
             | Linux           | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-amd64`       |
@@ -84,7 +84,7 @@ jobs:
             | Windows         | 386          | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-386.exe`   |
             | macOS (Darwin)  | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-darwin-amd64`      |
             ---
-            📝 **Ultimo commit:** `${{ steps.last_commit.outputs.message }}`
+            📝 **Note di release:** `${{ steps.last_commit.outputs.message }}`
           draft: false
           prerelease: false
           files: src/dist/*
