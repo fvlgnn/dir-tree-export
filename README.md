@@ -18,25 +18,23 @@
 
 ## 📥 Installazione
 
-1. Scarica l'eseguibile compatibile con il tuo sistema operativo e architettura dalla tabella seguente, oppure visita la sezione [Releases](https://github.com/fvlgnn/dir-tree-export/releases) per scegliere la versione più adatta.
+1. Scarica l'[ultima versione](https://github.com/fvlgnn/dir-tree-export/releases/latest) dell'eseguibile compatibile con il tuo sistema operativo e architettura, come da esempio riportato nella tabella seguente, oppure visita la sezione [Releases](https://github.com/fvlgnn/dir-tree-export/releases) per scegliere una versione specifica.
 
 > 💡 **Nota**:
 > 
 > * Per **Raspberry Pi 2/3**, usa `linux-armv7`
 > * Per **Raspberry Pi 4/5**, usa `linux-arm64`
 
-Scarica la versione di `dir-tree-export` per il sistema operativo e l'architettura di destinazione in base alla tabella qui sotto.
-Per Raspberry Pi 2/3, utilizzare l'architettura `linux-armv7`, mentre per Raspberry Pi 4/5 utilizzare `linux-arm64`.
 
-| Sistema        | Architettura | Download                                                            |
-|----------------|--------------|---------------------------------------------------------------------|
-| Linux          | amd64        | `[dir-tree-export-linux-amd64]()`       |
-| Linux          | 386          | `[dir-tree-export-linux-386]()`         |
-| Linux          | arm (v7)     | `[dir-tree-export-linux-armv7]()`       |
-| Linux          | arm64        | `[dir-tree-export-linux-arm64]()`       |
-| Windows        | amd64        | `[dir-tree-export-windows-amd64.exe]()` |
-| Windows        | 386          | `[dir-tree-export-windows-386.exe]()`   |
-| macOS (Darwin) | amd64        | `[dir-tree-export-darwin-amd64]()`      |
+| Sistema        | Architettura | Denominazione File                           |
+|----------------|--------------|----------------------------------------------|
+| Linux          | amd64        | `dir-tree-export-versione-linux-amd64`       |
+| Linux          | 386          | `dir-tree-export-versione-linux-386`         |
+| Linux          | arm (v7)     | `dir-tree-export-versione-linux-armv7`       |
+| Linux          | arm64        | `dir-tree-export-versione-linux-arm64`       |
+| Windows        | amd64        | `dir-tree-export-versione-windows-amd64.exe` |
+| Windows        | 386          | `dir-tree-export-versione-windows-386.exe`   |
+| macOS (Darwin) | amd64        | `dir-tree-export-versione-darwin-amd64`      |
 
 2. Copia il file scaricato in una directory del **PATH** di sistema:
    

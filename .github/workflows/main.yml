@@ -18,8 +18,10 @@ jobs:
         goos: [linux, windows, darwin]
         goarch: [amd64, 386, arm64, arm]
         exclude:
-          - goos: darwin
+          - goos: darwin # macOS
             goarch: 386
+          - goos: darwin # macOS
+            goarch: arm64
           - goos: darwin
             goarch: arm  # macOS non supporta armv7
           - goos: windows
@@ -28,14 +30,17 @@ jobs:
     steps:
 
       - name: Checkout code
+        id: checkout
         uses: actions/checkout@v4
 
       - name: Set up Go
+        id: setup-go
         uses: actions/setup-go@v4
         with:
           go-version: '1.23'
 
       - name: Build Go binary
+        id: build
         run: |
           cd src/
           mkdir -p dist
@@ -54,6 +59,10 @@ jobs:
             GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o "dist/$OUTPUT$EXT" main.go
           fi
 
+      - name: Get last commit message
+        id: last_commit
+        run: echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+
       - name: Release
         id: release
         uses: softprops/action-gh-release@v1
@@ -61,20 +70,22 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           tag_name: ${{ github.ref_name }}
-          name: dir-tree-export-{{ github.ref_name }}
+          name: dir-tree-export-${{ github.ref_name }}
           body: |
             **Dir Tree Export ${{ github.ref_name }}**
-            Scarica dagli Assets la versione di `${{ env.ARTIFACT_NAME }}` per il sistema operativo e l'architettura di destinazione in base alla tabella qui sotto.
-            Per Raspberry Pi 2/3, utilizzare l'architettura `linux-armv7`, mentre per Raspberry Pi 4/5 utilizzare `linux-arm64`.
+            Scarica la versione di `${{ env.ARTIFACT_NAME }}` per il sistema operativo e l'architettura di destinazione in base alla tabella qui sotto.
+            > Per Raspberry Pi 2/3, utilizzare l'architettura `linux-armv7`, mentre per Raspberry Pi 4/5 utilizzare `linux-arm64`.
             | Sistema        | Architettura | File                                                                |
             |----------------|--------------|---------------------------------------------------------------------|
-            | Linux          | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-amd64`       |
-            | Linux          | 386          | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-386`         |
-            | Linux          | arm (v7)     | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-armv7`       |
-            | Linux          | arm64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-arm64`       |
-            | Windows        | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-amd64.exe` |
-            | Windows        | 386          | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-386.exe`   |
-            | macOS (Darwin) | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-darwin-amd64`      |
+            | Linux          | amd64        | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-amd64](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-amd64)` |
+            | Linux          | 386          | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-386](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-386)` |
+            | Linux          | arm (v7)     | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-armv7](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-armv7)` |
+            | Linux          | arm64        | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-arm64](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-arm64)` |
+            | Windows        | amd64        | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-amd64.exe](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-amd64.exe)` |
+            | Windows        | 386          | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-386.exe](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-386.exe)` |
+            | macOS (Darwin) | amd64        | `[${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-darwin-amd64](https://github.com/fvlgnn/dir-tree-export/releases/download/${{ github.ref_name }}/${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-darwin-amd64)` |
+            ---
+            📝 **Ultimo commit:** `${{ steps.last_commit.outputs.message }}`
           draft: false
           prerelease: false
           files: src/dist/*
