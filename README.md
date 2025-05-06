@@ -42,8 +42,8 @@
 
 2. Copia il file scaricato in una directory del **PATH** di sistema:
    
-   * Su **Windows**: ad esempio `%USERPROFILE%\bin\` o aggiungilo al PATH
-   * Su **Linux/macOS**: ad esempio `/usr/local/bin/`
+   - Su **Windows**: ad esempio `%USERPROFILE%\bin\` o aggiungilo al PATH delle _Variabili d'Ambiente_
+   - Su **Linux/macOS**: ad esempio `/usr/local/bin/`
  
 3. Rinomina il file, se necessario, in `dir_tree_export` (o `dir_tree_export.exe` su Windows) per semplicità.
 
