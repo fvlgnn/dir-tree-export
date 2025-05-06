@@ -22,10 +22,12 @@ jobs:
             goarch: 386
           - goos: darwin # macOS
             goarch: arm64
-          - goos: darwin
-            goarch: arm  # macOS non supporta armv7
-          - goos: windows
-            goarch: arm  # Windows ARM non standard in Go
+          - goos: darwin # macOS
+            goarch: arm
+          - goos: windows # Windows
+            goarch: arm64
+          - goos: windows # Windows
+            goarch: arm
 
     steps:
 
