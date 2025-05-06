@@ -61,7 +61,7 @@ Genererà un file `albero.txt` con la struttura delle cartelle e file fino a una
 > 
 > All’avvio, Windows potrebbe mostrare un avviso che segnala l'applicazione come "autore non riconosciuto" o "potenzialmente non sicura" perché non è firmata digitalmente. Puoi ignorare l'avviso e procedere con l'esecuzione: il programma è sicuro, open source e trasparente.
 >
-> Il codice sorgente è disponibile [qui](https://github.com/fvlgnn/dir-tree-export/blob/main/src/main.go) e l'applicazione **non trasmette dati né esegue operazioni dannose.**
+> Il codice sorgente è disponibile [qui](https://github.com/fvlgnn/dir-tree-export/blob/main/src/main.go) e l'applicazione **non trasmette dati né esegue operazioni dannose**.
 
 ---
 
