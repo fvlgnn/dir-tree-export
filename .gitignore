@@ -4,7 +4,7 @@
 # Personali
 dir_tree_export_output.txt
 archivio/
-utils/
+# utils/
 TODO.md
 
 # Binaries for programs and plugins
