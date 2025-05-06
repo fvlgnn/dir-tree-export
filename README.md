@@ -55,7 +55,13 @@ Esempio base da terminale:
 ./dir_tree_export --depth 2 --show-hidden --output "albero.txt"
 ```
 
-Genererà un file `albero.txt` con la struttura delle cartelle e file fino a una profondità di 2, includendo anche i file nascosti.
+Genererà un file `albero.txt` con la struttura delle cartelle e file fino a una profondità di 2 sottocartelle, includendo anche i file nascosti.
+
+> ⚠️ **Nota per gli utenti Windows**
+> 
+> All’avvio, Windows potrebbe mostrare un avviso che segnala l'applicazione come "autore non riconosciuto" o "potenzialmente non sicura" perché non è firmata digitalmente. Puoi ignorare l'avviso e procedere con l'esecuzione: il programma è sicuro, open source e trasparente.
+>
+> Il codice sorgente è disponibile [qui](https://github.com/fvlgnn/dir-tree-export/blob/main/src/main.go) e l'applicazione **non trasmette dati né esegue operazioni dannose.**
 
 ---
 

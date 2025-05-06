@@ -53,10 +53,10 @@ jobs:
           if [ "${{ matrix.goarch }}" = "arm" ]; then
             OUTPUT="${OUTPUT}v7"
             echo "Building $OUTPUT$EXT with GOARM=7..."
-            GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} GOARM=7 go build -ldflags="-X 'main.version=${{ github.ref_name }}" -o "dist/$OUTPUT$EXT" main.go
+            GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} GOARM=7 go build -ldflags="-X 'main.version=${{ github.ref_name }}'" -o "dist/$OUTPUT$EXT" main.go
           else
             echo "Building $OUTPUT$EXT..."
-            GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -ldflags="-X 'main.version=${{ github.ref_name }}" -o "dist/$OUTPUT$EXT" main.go
+            GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -ldflags="-X 'main.version=${{ github.ref_name }}'" -o "dist/$OUTPUT$EXT" main.go
           fi
 
       - name: Get last commit message
