@@ -35,8 +35,8 @@
 > - Su **Windows 64-bit**, scarica il file denominato `dir-tree-export-<versione>-windows-amd64.exe`
 > - Su **Linux 32-bit**, scarica `dir-tree-export-<versione>-linux-386`
 > - Su **macOS 64-bit**, scarica `dir-tree-export-<versione>-darwin-amd64`
-> - Per **Raspberry Pi 4/5**, scarica `dir-tree-export-<versione>-linux-arm64`
-> - Per **Raspberry Pi 2/3**, scarica `dir-tree-export-<versione>-linux-armv7`
+> - Su **Raspberry Pi 4/5**, scarica `dir-tree-export-<versione>-linux-arm64`
+> - Su **Raspberry Pi 2/3**, scarica `dir-tree-export-<versione>-linux-armv7`
 >
 > Dove `<versione>` è di tipo `v1.2.3`.
 
