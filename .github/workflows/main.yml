@@ -78,15 +78,15 @@ jobs:
             Scarica dagli Assets l'eseguibile compatibile con il tuo sistema operativo e l'architettura come suggerito dalla tabella seguente.
             | Sistema         | Architettura | Asset                                                               |
             |-----------------|--------------|---------------------------------------------------------------------|
-            | Linux           | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-amd64`       |
-            | Linux           | 386          | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-386`         |
-            | Linux (RPi 2/3) | arm (v7)     | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-armv7`       |
-            | Linux (RPi 4/5) | arm64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-arm64`       |
-            | Windows         | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-amd64.exe` |
-            | Windows         | 386          | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-386.exe`   |
             | macOS (Darwin)  | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-darwin-amd64`      |
+            | Linux           | 386          | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-386`         |
+            | Linux           | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-amd64`       |
+            | Linux (RPi 4/5) | arm64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-arm64`       |
+            | Linux (RPi 2/3) | arm (v7)     | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-linux-armv7`       |
+            | Windows         | 386          | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-386.exe`   |
+            | Windows         | amd64        | `${{ env.ARTIFACT_NAME }}-${{ github.ref_name }}-windows-amd64.exe` |
             ---
-            📝 **Note di release:** `${{ steps.last_commit.outputs.message }}`
+            📝 **Note di release:** _${{ steps.last_commit.outputs.message }}_
           draft: false
           prerelease: false
           files: src/dist/*

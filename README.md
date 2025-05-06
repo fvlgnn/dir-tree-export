@@ -28,12 +28,12 @@
 
 | Sistema         | Architettura | Denominazione File                           |
 |-----------------|--------------|----------------------------------------------|
-| Linux           | amd64        | `dir-tree-export-versione-linux-amd64`       |
-| Linux           | 386          | `dir-tree-export-versione-linux-386`         |
-| Linux (RPi 2/3) | arm (v7)     | `dir-tree-export-versione-linux-armv7`       |
-| Linux (RPi 4/5) | arm64        | `dir-tree-export-versione-linux-arm64`       |
 | Windows         | amd64        | `dir-tree-export-versione-windows-amd64.exe` |
 | Windows         | 386          | `dir-tree-export-versione-windows-386.exe`   |
+| Linux           | amd64        | `dir-tree-export-versione-linux-amd64`       |
+| Linux           | 386          | `dir-tree-export-versione-linux-386`         |
+| Linux (RPi 4/5) | arm64        | `dir-tree-export-versione-linux-arm64`       |
+| Linux (RPi 2/3) | arm (v7)     | `dir-tree-export-versione-linux-armv7`       |
 | macOS (Darwin)  | amd64        | `dir-tree-export-versione-darwin-amd64`      |
 
 2. Copia il file scaricato in una directory del **PATH** di sistema:
